@@ -4,20 +4,18 @@
 # This is a common source of Android security bugs.
 #
 
-#
-# VOWIFI - This RILD defined here will override the service defined
-# in the main init.rc to support Sprint VoWiFi project
-#
 service ril-daemon /system/bin/rild
     class main
     socket rild stream 660 root radio
+    socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket rild-debug stream 660 radio system
-#
-# VoWiFi: Added cfiat and kipc socket for Sprint VoWiFi project.
-    socket cfiat stream 660 radio inet
-    socket kipc stream 660 radio inet
-# End of VoWiFi
-#
     user root
     group radio cache inet misc audio log qcom_diag system drmrpc vpn readproc
-    onrestart restart cpboot-daemon
+
+service ril-daemon1 /system/bin/rild -c 2
+    class main
+    socket rild2 stream 660 root radio
+    socket rild-debug2 stream 660 radio system
+    user root
+    group radio cache inet misc audio log qcom_diag system drmrpc sdcard_r sdcard_rw shell readproc
+    disabled

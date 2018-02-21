@@ -19,5 +19,5 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Ramdisk
-#PRODUCT_PACKAGES += \
-#    init.rilcarrier.rc
+PRODUCT_PACKAGES += \
+    init.rilchip.rc
