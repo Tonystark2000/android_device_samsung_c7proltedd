@@ -1,10 +1,10 @@
 # Inherit from vendor
-$(call inherit-product-if-exists, vendor/samsung/j7popltespr/j7popltespr-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/c7proltedd/c7proltedd-vendor.mk)
 
 # Inherit from common
-$(call inherit-product, device/samsung/j7poplte-common/j7poplte.mk)
+$(call inherit-product, device/samsung/c7prolte-common/c7prolte.mk)
 
-LOCAL_PATH := device/samsung/j7popltespr
+LOCAL_PATH := device/samsung/c7proltedd
 
 # Data configs
 PRODUCT_COPY_FILES += \
@@ -19,5 +19,5 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Ramdisk
-PRODUCT_PACKAGES += \
-    init.rilcarrier.rc
+#PRODUCT_PACKAGES += \
+#    init.rilcarrier.rc
